@@ -1732,89 +1732,86 @@ function canviarFoto5(direccio){
 
     },200);
 }
+    window.addEventListener("DOMContentLoaded", function(){
+
+    const projectes = document.querySelectorAll(".projectes .card");
+
+    if(window.innerWidth <= 768){
+
+        projectes.forEach((projecte, index) => {
+            projecte.style.display = index === 0 ? "block" : "none";
+        });
+
+    } else {
+
+        projectes.forEach((projecte, index) => {
+            projecte.style.display = index < 3 ? "block" : "none";
+        });
+
+    }
+
+});
 let paginaProjectes = 0;
-
-
 function canviarProjecteMobil(direccio){
 
     const projectes = document.querySelectorAll(".projectes .card");
 
-
-    // MÒBIL: un projecte cada vegada
     if(window.innerWidth <= 768){
 
         let projecteActual = Array.from(projectes).findIndex(
             projecte => projecte.style.display === "block"
         );
 
-
         if(projecteActual === -1){
             projecteActual = 0;
         }
 
-
-        projectes[projecteActual].style.display = "none";
-
+        projectes.forEach(projecte => {
+            projecte.style.display = "none";
+        });
 
         projecteActual += direccio;
 
-
         if(projecteActual >= projectes.length){
-
             projecteActual = 0;
-
         }
-
 
         if(projecteActual < 0){
-
             projecteActual = projectes.length - 1;
-
         }
-
 
         projectes[projecteActual].style.display = "block";
 
-
-    } 
-
-
-    // ORDINADOR: grups de 3
-    else {
+    } else {
 
         const projectesPerPagina = 3;
 
-        const totalPagines = Math.ceil(projectes.length / projectesPerPagina);
-
+        const totalPagines = Math.ceil(
+            projectes.length / projectesPerPagina
+        );
 
         paginaProjectes += direccio;
 
-
         if(paginaProjectes >= totalPagines){
-
             paginaProjectes = 0;
-
         }
-
 
         if(paginaProjectes < 0){
-
             paginaProjectes = totalPagines - 1;
-
         }
 
+        projectes.forEach((projecte, index) => {
 
-        projectes.forEach((projecte, index)=>{
+            const pagina = Math.floor(
+                index / projectesPerPagina
+            );
 
-            const pagina = Math.floor(index / projectesPerPagina);
-
-
-            projecte.style.display = pagina === paginaProjectes ? "block" : "none";
+            projecte.style.display =
+                pagina === paginaProjectes ? "block" : "none";
 
         });
 
     }
-
 }
 </script>
 
