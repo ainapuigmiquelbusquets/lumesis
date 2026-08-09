@@ -1225,7 +1225,7 @@ Entre blaus i llum és una aquarel·la pintada a mà que captura un instant de c
 Una peça orgànica amb acabat brillant que fa que cada parell sigui únic, inspirada en la bellesa dels petits detalls. Les Arracades Eira estan pensades per donar un toc especial a qualsevol estil, convertint-se en un complement delicat que destaca per la seva originalitat i personalitat.</p>
 
 </div>
-   </div>
+
 
 
 <!-- PROJECTE 5 -->
@@ -1295,7 +1295,7 @@ DESCRIPCIÓ DEL PROJECTE 6
 </button>
 
 </div>
-
+   </div>
 
 <p id="text-llisca">Llisca</p>
 </div>
@@ -1665,6 +1665,40 @@ function canviarFoto2(direccio){
 
     },200);
 
+}
+    let fotosProjecte5 = [
+    "projecte5.1",
+    "projecte5.2",
+    "projecte5.3"
+];
+
+let fotoActual5 = 0;
+
+function canviarFoto5(direccio){
+
+    fotoActual5 = fotoActual5 + direccio;
+
+    if(fotoActual5 < 0){
+        fotoActual5 = fotosProjecte5.length - 1;
+    }
+
+    if(fotoActual5 >= fotosProjecte5.length){
+        fotoActual5 = 0;
+    }
+
+    let imatge = document.getElementById("foto-projecte5");
+
+    imatge.style.opacity = "0";
+
+    setTimeout(function(){
+
+        imatge.src = fotosProjecte5[fotoActual5];
+        imatge.style.opacity = "1";
+
+        document.getElementById("contador5").innerHTML =
+        (fotoActual5 + 1) + " / " + fotosProjecte5.length;
+
+    },200);
 }
     let fotosProjecte5 = [
     "projecte5.1",
