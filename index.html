@@ -1225,7 +1225,60 @@ Entre blaus i llum és una aquarel·la pintada a mà que captura un instant de c
 Una peça orgànica amb acabat brillant que fa que cada parell sigui únic, inspirada en la bellesa dels petits detalls. Les Arracades Eira estan pensades per donar un toc especial a qualsevol estil, convertint-se en un complement delicat que destaca per la seva originalitat i personalitat.</p>
 
 </div>
-    
+   </div>
+
+
+<!-- PROJECTE 5 -->
+
+<div class="card">
+
+<div class="carrusel">
+
+<div class="foto-carrusel">
+
+<img id="foto-projecte5" src="projecte5.1" alt="Projecte 5">
+
+<button class="fletxa esquerra" onclick="canviarFoto5(-1)">‹</button>
+
+<button class="fletxa dreta" onclick="canviarFoto5(1)">›</button>
+
+<div id="contador5">1 / 3</div>
+
+</div>
+
+</div>
+
+<h3 id="nom-projecte-5">NOM DEL PROJECTE 5</h3>
+
+<p id="descripcio-projecte-5">
+DESCRIPCIÓ DEL PROJECTE 5
+</p>
+
+</div>
+
+
+</div>
+    <!-- PROJECTE 6 -->
+
+<div class="card">
+
+<div class="carrusel">
+
+<div class="foto-carrusel">
+
+<img src="projecte6.1" alt="Projecte 6">
+
+</div>
+
+</div>
+
+<h3 id="nom-projecte-6">NOM DEL PROJECTE 6</h3>
+
+<p id="descripcio-projecte-6">
+DESCRIPCIÓ DEL PROJECTE 6
+</p>
+
+</div>
 </div>
 
 <div class="navegacio-projectes">
@@ -1612,6 +1665,40 @@ function canviarFoto2(direccio){
 
     },200);
 
+}
+    let fotosProjecte5 = [
+    "projecte5.1",
+    "projecte5.2",
+    "projecte5.3"
+];
+
+let fotoActual5 = 0;
+
+function canviarFoto5(direccio){
+
+    fotoActual5 = fotoActual5 + direccio;
+
+    if(fotoActual5 < 0){
+        fotoActual5 = fotosProjecte5.length - 1;
+    }
+
+    if(fotoActual5 >= fotosProjecte5.length){
+        fotoActual5 = 0;
+    }
+
+    let imatge = document.getElementById("foto-projecte5");
+
+    imatge.style.opacity = "0";
+
+    setTimeout(function(){
+
+        imatge.src = fotosProjecte5[fotoActual5];
+        imatge.style.opacity = "1";
+
+        document.getElementById("contador5").innerHTML =
+        (fotoActual5 + 1) + " / " + fotosProjecte5.length;
+
+    },200);
 }
 let paginaProjectes = 0;
 
