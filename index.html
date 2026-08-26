@@ -1209,7 +1209,31 @@ La Col·lecció Auri neix del joc amb les formes, els colors i les textures. Arr
 </div>
 
 </div>
+<div class="card">
 
+    <div class="carrusel">
+
+        <div class="foto-carrusel">
+
+            <img id="foto-projecte9" src="projecte9.1" alt="Projecte 9">
+
+            <button class="fletxa esquerra" onclick="canviarFoto9(-1)">‹</button>
+
+            <button class="fletxa dreta" onclick="canviarFoto9(1)">›</button>
+
+            <div id="contador9">1 / 6</div>
+
+        </div>
+
+    </div>
+
+    <h3>NOM DEL PROJECTE</h3>
+
+    <p>
+        DESCRIPCIÓ DEL PROJECTE
+    </p>
+
+</div>
 
 <h3 id="nom-projecte-2">Arracades Thaila</h3>
 
@@ -1940,7 +1964,45 @@ function canviarFoto8(direccio){
     }, 200);
 
 }
+let fotosProjecte9 = [
+    "projecte9.1",
+    "projecte9.2",
+    "projecte9.3",
+    "projecte9.4",
+    "projecte9.5",
+    "projecte9.6"
+];
 
+let fotoActual9 = 0;
+
+function canviarFoto9(direccio){
+
+    fotoActual9 += direccio;
+
+    if(fotoActual9 < 0){
+        fotoActual9 = fotosProjecte9.length - 1;
+    }
+
+    if(fotoActual9 >= fotosProjecte9.length){
+        fotoActual9 = 0;
+    }
+
+    let imatge = document.getElementById("foto-projecte9");
+
+    imatge.style.opacity = "0";
+
+    setTimeout(function(){
+
+        imatge.src = fotosProjecte9[fotoActual9];
+
+        imatge.style.opacity = "1";
+
+        document.getElementById("contador9").innerHTML =
+            (fotoActual9 + 1) + " / " + fotosProjecte9.length;
+
+    }, 200);
+
+}
 </script>
   <script>
 const missatgeFormulari = {
